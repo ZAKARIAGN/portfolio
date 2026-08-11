@@ -1,22 +1,12 @@
 import React, { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import batisFoot from "../assets/BatisFoot.png"
 import github from "../assets/github.png"
+import { projects } from "./projectsObject"
 
 gsap.registerPlugin(ScrollTrigger);
 
 const MyProjects = () => {
-  const projects = [
-    {
-      img: batisFoot,
-      name: "BatisFoot",
-      description: "Smart football field booking and management platform",
-      skills: ["React.js", "Node.js", "Express.js", "MySql", "Tailwind"],
-      github: "https://github.com/ZAKARIAGN/BatisFoot.git",
-      live: "https://batisfut.vercel.app/"
-    }
-  ]
 
   const sectionRef = useRef(null);
   const titleRef = useRef(null);
@@ -74,7 +64,7 @@ const MyProjects = () => {
             <div
               key={index}
               ref={el => cardsRef.current[index] = el}
-              className='bg-black text-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 w-[30%] md:w-[48%] lg:w-[500px] flex flex-col'
+              className='bg-black text-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 w-full sm:w-[80%] md:w-[48%] lg:w-[500px] flex flex-col'
             >
               <div className='relative overflow-hidden group'>
                 <img src={project.img} className="w-full h-[250px] object-cover group-hover:scale-105 transition-transform duration-500" alt={project.name} />

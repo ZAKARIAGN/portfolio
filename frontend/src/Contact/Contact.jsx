@@ -15,7 +15,6 @@ const Contact = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Title slides in from left
       gsap.from(titleRef.current, {
         x: -80,
         opacity: 0,
@@ -28,7 +27,7 @@ const Contact = () => {
         },
       });
 
-      // Subtitle fades up
+
       gsap.from(subtitleRef.current, {
         y: 30,
         opacity: 0,
@@ -42,7 +41,7 @@ const Contact = () => {
         },
       });
 
-      // Contact info items stagger in from left
+
       gsap.from(contactInfoRef.current.children, {
         x: -60,
         opacity: 0,
@@ -56,7 +55,7 @@ const Contact = () => {
         },
       });
 
-      // Socials pop in
+
       gsap.from(socialsRef.current.children, {
         scale: 0,
         opacity: 0,
@@ -70,7 +69,6 @@ const Contact = () => {
         },
       });
 
-      // Form slides in from right
       gsap.from(formRef.current, {
         x: 80,
         opacity: 0,
@@ -83,7 +81,7 @@ const Contact = () => {
         },
       });
 
-      // Form fields stagger in
+
       gsap.from(formRef.current.children, {
         y: 30,
         opacity: 0,

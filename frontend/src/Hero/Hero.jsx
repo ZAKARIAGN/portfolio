@@ -64,8 +64,8 @@ const Hero = () => {
         return () => ctx.revert();
     }, []);
     return (
-        <div id="hero" className='flex py-20 mx-10' style={{ backgroundImage: `url(${earth})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-            <div className='flex flex-col justify-center gap-6 py-20 w-full lg:w-1/2 z-10'>
+        <div id="hero" className='flex flex-col lg:flex-row py-20 mx-4 md:mx-10 items-center overflow-hidden' style={{ backgroundImage: `url(${earth})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <div className='flex flex-col justify-center gap-6 py-10 lg:py-20 w-full lg:w-1/2 z-10'>
                 <p className='text-xl md:text-2xl font-medium text-blue-600 tracking-wide uppercase'>Hello, I'm</p>
                 <h1 className='text-5xl md:text-7xl lg:text-[80px] font-extrabold leading-tight text-gray-900' ref={titleRef}>
                     ZAKARIA <br /><span className='text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500'>GNAOUI</span>
@@ -83,10 +83,10 @@ const Hero = () => {
                     </a>
                 </div>
             </div>
-            <div className='relative flex'>
-                <img src={cercle} alt="cercle" ref={circleRef} />
-                <img src={man} alt="man" className='absolute bottom-0 h-[700px]' ref={manRef} />
-                <img src={editor} alt="editor" className='absolute bottom-0 right-2 w-1/2 h-1/2 object-contain' ref={editorRef} />
+            <div className='relative flex justify-center w-full lg:w-1/2 mt-10 lg:mt-0'>
+                <img src={cercle} alt="cercle" className='w-[300px] sm:w-[400px] md:w-[500px] lg:w-auto object-contain' ref={circleRef} />
+                <img src={man} alt="man" className='absolute bottom-0 h-[350px] sm:h-[450px] md:h-[550px] lg:h-[700px]' ref={manRef} />
+                <img src={editor} alt="editor" className='absolute bottom-0 right-4 sm:right-10 lg:right-2 w-[45%] h-[45%] object-contain' ref={editorRef} />
             </div>
 
 

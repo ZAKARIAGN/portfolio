@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import gsap from 'gsap'
+import {projects} from "../MyProjects/projectsObject"
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Img1 from '../assets/AboutMe_Img.jpeg'
 
@@ -52,7 +53,7 @@ const AboutMe = () => {
         <section
             id="about"
             ref={sectionRef}
-            className="relative overflow-hidden py-24 px-10"
+            className="relative overflow-hidden py-24 px-4 md:px-10"
             style={{ background: 'linear-gradient(135deg, #f0f4ff 0%, #fafbff 50%, #eef2ff 100%)' }}
         >
             <div className="pointer-events-none absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full"
@@ -104,14 +105,13 @@ const AboutMe = () => {
                             </p>
                         </div>
 
-                        {/* Stats */}
                         <div ref={statsRef} className="flex flex-wrap gap-6">
                             <div className="flex flex-col items-center px-6 py-4 rounded-2xl border border-indigo-200/60 bg-white/70 backdrop-blur-md min-w-[100px]">
                                 <span className="text-3xl font-extrabold bg-gradient-to-br from-indigo-500 to-blue-500 bg-clip-text text-transparent">3+</span>
                                 <span className="text-xs text-slate-500 font-medium mt-1 tracking-wide">Years Exp.</span>
                             </div>
                             <div className="flex flex-col items-center px-6 py-4 rounded-2xl border border-indigo-200/60 bg-white/70 backdrop-blur-md min-w-[100px]">
-                                <span className="text-3xl font-extrabold bg-gradient-to-br from-blue-500 to-cyan-400 bg-clip-text text-transparent">10+</span>
+                                <span className="text-3xl font-extrabold bg-gradient-to-br from-blue-500 to-cyan-400 bg-clip-text text-transparent">{projects.length}</span>
                                 <span className="text-xs text-slate-500 font-medium mt-1 tracking-wide">Projects</span>
                             </div>
                             <div className="flex flex-col items-center px-6 py-4 rounded-2xl border border-indigo-200/60 bg-white/70 backdrop-blur-md min-w-[100px]">

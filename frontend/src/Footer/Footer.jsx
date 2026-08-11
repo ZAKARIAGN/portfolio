@@ -14,9 +14,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-950 text-gray-400 pt-16 pb-8 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* Top section */}
         <div className="flex flex-col md:flex-row justify-between items-start gap-12 pb-12 border-b border-gray-800">
-          {/* Brand */}
           <div className="flex flex-col gap-4 max-w-sm">
             <h2 className="text-2xl font-extrabold text-white">
               Zakaria<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400">.</span>
@@ -26,7 +24,6 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Navigation */}
           <div className="flex flex-col gap-4">
             <h3 className="text-white font-semibold text-sm uppercase tracking-widest">Navigation</h3>
             <ul className="flex flex-col gap-2">
@@ -40,7 +37,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Social */}
           <div className="flex flex-col gap-4">
             <h3 className="text-white font-semibold text-sm uppercase tracking-widest">Connect</h3>
             <div className="flex gap-3">
