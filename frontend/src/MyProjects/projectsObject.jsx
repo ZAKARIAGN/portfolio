@@ -1,4 +1,4 @@
-import batisFoot from "../assets/BatisFoot.png";
+import batisFoot from "../assets/batisFoot.png";
 export const projects = [
     {
       img: batisFoot,
