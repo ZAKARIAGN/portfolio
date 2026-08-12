@@ -5,7 +5,7 @@ import editor from '../assets/editor.png'
 import earth from '../assets/bgHero.png'
 import react from "../assets/react.png";
 import node from "../assets/node.png";
-import express from "../assets/Express.png";
+import express from "../assets/express.png";
 import mysql from '../assets/mysql.png'
 import CV from '../assets/CV.pdf'
 
