@@ -8,7 +8,7 @@ import { Star } from 'lucide-react'
 // Import skill icons
 import reactIcon from '../assets/react.png'
 import nodeIcon from '../assets/node.png'
-import expressIcon from '../assets/Express.png'
+import expressIcon from '../assets/express.png'
 import mysqlIcon from '../assets/mysql.png'
 import tailwindIcon from '../assets/tailwind.png'
 import htmlIcon from '../assets/html.png'
