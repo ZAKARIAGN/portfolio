@@ -16,7 +16,6 @@ const Hero = () => {
     const subtitleRef = useRef(null);
     const descRef = useRef(null);
     const buttonsRef = useRef(null);
-    const circleRef = useRef(null);
     const manRef = useRef(null);
     const editorRef = useRef(null);
 
