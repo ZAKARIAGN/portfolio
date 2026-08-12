@@ -2,6 +2,9 @@ import React, { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import sendEmail from "./SendEmail";
+import { Phone, Mail, User, FileText, PenLine, Send } from 'lucide-react'
+import github from '../assets/github.png'
+import linkedin from '../assets/linkdin.png'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -56,18 +59,8 @@ const Contact = () => {
       });
 
 
-      gsap.from(socialsRef.current.children, {
-        scale: 0,
-        opacity: 0,
-        duration: 0.4,
-        stagger: 0.1,
-        ease: 'back.out(1.7)',
-        scrollTrigger: {
-          trigger: socialsRef.current,
-          start: 'top 90%',
-          toggleActions: 'play none none none',
-        },
-      });
+      // Removed socialsRef animation to ensure buttons are always visible
+
 
       gsap.from(formRef.current, {
         x: 80,
@@ -101,82 +94,126 @@ const Contact = () => {
   }, []);
 
   return (
-    <section id="contact" className="bg-white py-20 px-4 md:px-8" ref={sectionRef}>
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-start">
-        <div className="md:w-1/2 flex flex-col gap-8">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight" ref={titleRef}>
-            Let's connect and <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">build something great together</span>
-          </h1>
-          <p className="text-gray-600 text-lg" ref={subtitleRef}>
+    <section id="contact" className="relative bg-[#fafbfe] py-24 px-4 md:px-8 overflow-hidden" ref={sectionRef}>
+
+      {/* Background decorations */}
+      <div className='absolute top-20 left-0 w-[400px] h-[400px] bg-blue-100/40 rounded-full blur-3xl -translate-x-1/2 pointer-events-none' />
+      <div className='absolute top-1/4 right-0 w-[500px] h-[500px] bg-indigo-50/60 rounded-full blur-3xl translate-x-1/4 pointer-events-none' />
+
+      <div
+        className='absolute top-32 left-10 w-32 h-32 opacity-20 pointer-events-none'
+        style={{ backgroundImage: 'radial-gradient(circle, #3b82f6 2px, transparent 2px)', backgroundSize: '24px 24px' }}
+      />
+      <div
+        className='absolute bottom-40 right-20 w-40 h-40 opacity-20 pointer-events-none'
+        style={{ backgroundImage: 'radial-gradient(circle, #3b82f6 2px, transparent 2px)', backgroundSize: '24px 24px' }}
+      />
+
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 items-start relative z-10">
+
+        {/* Left Column: Text & Info */}
+        <div className="lg:w-1/2 flex flex-col pt-4">
+          <div ref={titleRef}>
+            <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold text-[#0a1128] leading-[1.1] mb-2 tracking-tight">
+              Let's connect and <br className="hidden sm:block" />
+              <span className="text-blue-600">build something <br className="hidden sm:block" /> great together</span>
+            </h1>
+            <div className="w-12 h-1.5 bg-blue-600 mt-6 mb-8 rounded-full"></div>
+          </div>
+
+          <p className="text-gray-500 text-lg leading-relaxed mb-12 max-w-md" ref={subtitleRef}>
             Whether you have a question, a project idea, or just want to say hi, feel free to drop a message!
           </p>
 
-          <div className="flex flex-col gap-6 mt-4" ref={contactInfoRef}>
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+          <div className="flex flex-col gap-8 mb-16" ref={contactInfoRef}>
+            <div className="flex items-center gap-5">
+              <div className="w-14 h-14 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 shadow-sm border border-blue-100/50">
+                <Phone size={22} className="fill-blue-600/10" />
               </div>
               <div>
-                <h3 className="text-gray-500 text-sm font-medium uppercase tracking-wider">Call Number</h3>
-                <p className="text-gray-900 font-semibold text-lg">+212 649 961 829</p>
+                <h3 className="text-gray-400 text-xs font-bold uppercase tracking-widest mb-1">Call Number</h3>
+                <p className="text-[#0a1128] font-bold text-lg">+212 649 961 829</p>
               </div>
             </div>
 
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+            <div className="flex items-center gap-5">
+              <div className="w-14 h-14 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 shadow-sm border border-blue-100/50">
+                <Mail size={22} className="fill-blue-600/10" />
               </div>
               <div>
-                <h3 className="text-gray-500 text-sm font-medium uppercase tracking-wider">Email</h3>
-                <p className="text-gray-900 font-semibold text-lg">zakariagnaoui06@gmail.com</p>
+                <h3 className="text-gray-400 text-xs font-bold uppercase tracking-widest mb-1">Email</h3>
+                <p className="text-[#0a1128] font-bold text-lg">zakariagnaoui06@gmail.com</p>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-[#0a1128] font-bold text-xl mb-5">Social Network</h3>
+              <div className="flex gap-4" ref={socialsRef}>
+                <a href="https://www.linkedin.com/in/zakaria-gnaoui-749146398/" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-2xl bg-white shadow-sm border border-gray-100 flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
+                  <img src={linkedin} className="w-5 h-5 transition-all duration-300 group-hover:invert group-hover:brightness-0" alt="linkedin" />
+                </a>
+                <a href="https://github.com/ZAKARIAGN" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-2xl bg-white shadow-sm border border-gray-100 flex items-center justify-center text-[#0a1128] hover:bg-[#0a1128] hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
+                  <img src={github} className="w-5 h-5 transition-all duration-300 group-hover:invert" alt="github" />
+                </a>
               </div>
             </div>
           </div>
 
-          <div className="mt-8">
-            <h3 className="text-gray-900 font-bold text-xl mb-4">Social Network</h3>
-            <div className="flex gap-4" ref={socialsRef}>
-              <a href="https://www.facebook.com/zakaria.gnaoui.148" className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition-all duration-300">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
-                </svg>
-              </a>
-              <a href="https://www.instagram.com/zakaria_gw_/" className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-pink-600 hover:text-white transition-all duration-300">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path fillRule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clipRule="evenodd" />
-                </svg>
-              </a>
-              <a href="https://www.linkedin.com/in/zakaria-gnaoui-749146398/" className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-700 hover:text-white transition-all duration-300">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path fillRule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clipRule="evenodd" />
-                </svg>
-              </a>
-            </div>
-          </div>
+
         </div>
 
-        <div className="md:w-1/2 w-full bg-white rounded-3xl shadow-xl border border-gray-100 p-8" ref={formRef}>
-          <form className="flex flex-col gap-6" onSubmit={sendEmail}>
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
-              <input type="text" id="name" name="name" className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" placeholder="John Doe" />
-            </div>
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
-              <input type="email" id="email" name="email" className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" placeholder="john@example.com" />
-            </div>
-            <div>
-              <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">Subject</label>
-              <input type="text" id="subject" name="title" className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" placeholder="Project Inquiry" />
-            </div>
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">Message</label>
-              <textarea id="message" name="message" rows="4" className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" placeholder="Tell me about your project..."></textarea>
-            </div>
-            <button type="submit" className="w-full py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold rounded-xl hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-              Send Message
-            </button>
-          </form>
+        {/* Right Column: Form */}
+        <div className="lg:w-1/2 w-full" ref={formRef}>
+          <div className="bg-white rounded-[2rem] shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-gray-100 p-6 sm:p-12">
+            <form className="flex flex-col gap-5 sm:gap-6" onSubmit={sendEmail}>
+
+              <div>
+                <label htmlFor="name" className="block text-sm font-bold text-gray-700 mb-2.5">Full Name</label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <User size={18} className="text-blue-400" />
+                  </div>
+                  <input type="text" id="name" name="name" className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-white border border-gray-100 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all text-gray-700 placeholder-gray-400" placeholder="John Doe" required />
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-bold text-gray-700 mb-2.5">Email Address</label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <Mail size={18} className="text-blue-400" />
+                  </div>
+                  <input type="email" id="email" name="email" className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-white border border-gray-100 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all text-gray-700 placeholder-gray-400" placeholder="john@example.com" required />
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="subject" className="block text-sm font-bold text-gray-700 mb-2.5">Subject</label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <FileText size={18} className="text-blue-400" />
+                  </div>
+                  <input type="text" id="subject" name="title" className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-white border border-gray-100 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all text-gray-700 placeholder-gray-400" placeholder="Project Inquiry" required />
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-bold text-gray-700 mb-2.5">Message</label>
+                <div className="relative">
+                  <div className="absolute top-4 left-0 pl-4 flex items-start pointer-events-none">
+                    <PenLine size={18} className="text-blue-400" />
+                  </div>
+                  <textarea id="message" name="message" rows="4" className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-white border border-gray-100 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all text-gray-700 placeholder-gray-400 resize-none" placeholder="Tell me about your project..." required></textarea>
+                </div>
+              </div>
+
+              <button type="submit" className="w-full py-4 mt-2 bg-[#0084ff] text-white font-bold rounded-xl shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
+                <Send size={18} />
+                Send Message
+              </button>
+
+            </form>
+          </div>
         </div>
       </div>
     </section>

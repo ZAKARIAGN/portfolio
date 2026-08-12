@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import logo from '../assets/logo.png'
+import linkedin from '../assets/linkdin.png'
+import github from '../assets/github.png'
 import gsap from "gsap";
 import { ScrollToPlugin } from 'gsap/all';
 
@@ -19,6 +21,7 @@ const Navbar = () => {
     const logoRef = useRef(null);
     const linksRef = useRef(null);
     const mobileMenuRef = useRef(null);
+    const socialMediaLinksRef = useRef(null);
 
     const handleScrollTo = (href) => {
         setIsMobileMenuOpen(false);
@@ -76,16 +79,21 @@ const Navbar = () => {
                     },
                     "-=0.3"
                 );
+            tl.from(socialMediaLinksRef.current.children,{
+                x:200,
+                opacity:0,
+                stagger:0.15,
+                duration:0.5,
+            },"-=0.3")
         });
 
         return () => ctx.revert();
     }, [])
     return (
-        <nav className='fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md shadow-sm' ref={navRef}>
-            <div className='max-w-7xl mx-auto px-6 py-4 flex justify-between md:justify-center items-center gap-12'>
-                <img className='w-[50px] h-[50px] object-contain cursor-pointer transition-transform duration-300 hover:scale-110' src={logo} alt="logo" ref={logoRef} />
+        <nav className='fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md shadow-sm px-4' ref={navRef}>
+            <div className='max-w-7xl mx-auto py-4 flex justify-between items-center'>
+                <img className='w-[45px] h-[45px] sm:w-[50px] sm:h-[50px] object-contain cursor-pointer transition-transform duration-300 hover:scale-110' src={logo} alt="logo" ref={logoRef} />
                 
-                {/* Desktop Menu */}
                 <ul className='hidden md:flex gap-8 text-lg font-medium text-gray-700 justify-center items-center' ref={linksRef}>
                     {links.map((link) => (
                         <li key={link.label}>
@@ -100,18 +108,26 @@ const Navbar = () => {
                     ))}
                 </ul>
 
-                {/* Mobile Menu Toggle Button */}
+                <div className="hidden md:flex items-center gap-3" ref={socialMediaLinksRef}>
+                    <a href="https://www.linkedin.com/in/zakaria-gnaoui-749146398/" target="_blank" rel="noopener noreferrer" className='cursor-pointer'>
+                        <img className='w-[40px] h-[40px] object-contain transition-transform duration-300 hover:scale-110' src={linkedin} alt="linkedin" />
+                    </a>
+                    <a href="https://github.com/ZAKARIAGN" target="_blank" rel="noopener noreferrer" className='cursor-pointer'>
+                        <img className='w-[40px] h-[40px] object-contain transition-transform duration-300 hover:scale-110' src={github} alt="github" />
+                    </a>
+                </div>
+
                 <div className='md:hidden flex items-center'>
                     <button 
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        className='text-gray-700 hover:text-blue-600 focus:outline-none'
+                        className='text-gray-700 hover:text-blue-600 focus:outline-none p-2'
                         aria-label="Toggle mobile menu"
                     >
-                        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             {isMobileMenuOpen ? (
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
                             ) : (
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 6h16M4 12h16M4 18h16" />
                             )}
                         </svg>
                     </button>
@@ -121,14 +137,14 @@ const Navbar = () => {
             {/* Mobile Menu Dropdown */}
             <div 
                 ref={mobileMenuRef} 
-                className='md:hidden bg-white border-t border-gray-100 overflow-hidden hidden shadow-md'
+                className='md:hidden bg-white border-t border-gray-100 overflow-hidden hidden shadow-lg rounded-b-2xl absolute left-0 w-full'
                 style={{ height: 0, opacity: 0 }}
             >
-                <ul className='flex flex-col px-6 py-4 gap-4 text-center'>
+                <ul className='flex flex-col px-6 pt-4 pb-2 gap-2 text-center'>
                     {links.map((link) => (
                         <li key={link.label}>
                             <a
-                                className='block text-lg font-medium text-gray-700 hover:text-blue-600 cursor-pointer py-2'
+                                className='block text-lg font-semibold text-gray-700 hover:text-blue-600 cursor-pointer py-3 rounded-xl hover:bg-blue-50 transition-colors'
                                 onClick={() => handleScrollTo(link.href)}
                             >
                                 {link.label}
@@ -136,6 +152,14 @@ const Navbar = () => {
                         </li>
                     ))}
                 </ul>
+                <div className='flex justify-center gap-6 pb-6 pt-2 border-t border-gray-50 mt-2 mx-6'>
+                    <a href="https://www.linkedin.com/in/zakaria-gnaoui-749146398/" target="_blank" rel="noopener noreferrer" className='cursor-pointer bg-gray-50 p-2 rounded-xl'>
+                        <img className='w-[30px] h-[30px] object-contain' src={linkedin} alt="linkedin" />
+                    </a>
+                    <a href="https://github.com/ZAKARIAGN" target="_blank" rel="noopener noreferrer" className='cursor-pointer bg-gray-50 p-2 rounded-xl'>
+                        <img className='w-[30px] h-[30px] object-contain' src={github} alt="github" />
+                    </a>
+                </div>
             </div>
         </nav>
     )
