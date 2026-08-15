@@ -9,7 +9,7 @@ import Footer from './Footer/Footer'
 
 const App = () => {
   return (
-    <div><Navbar/><Hero/><AboutMe/><Skills/><MyProjects/><Contact/><Footer/></div>
+    <div><Navbar /><Hero /><AboutMe /><Skills /><MyProjects /><Contact /><Footer /></div>
   )
 }
 
