@@ -10,12 +10,12 @@ export const projects = [
       github: "https://github.com/ZAKARIAGN/BatisFoot.git",
       live: "https://batisfut.vercel.app/"
     },
-    // {
-    //   img: placeholderImg,
-    //   name: "E-Commerce Platform",
-    //   description: "A modern e-commerce platform with a fully functional shopping cart and secure checkout process.",
-    //   skills: ["React.js", "Node.js", "Tailwind"],
-    //   github: "https://github.com/ZAKARIAGN",
-    //   live: "#"
-    // }
+    {
+      img: placeholderImg,
+      name: "E-Commerce Platform",
+      description: "A modern e-commerce platform with a fully functional shopping cart and secure checkout process.",
+      skills: ["React.js", "Node.js", "Tailwind"],
+      github: "https://github.com/ZAKARIAGN",
+      live: "#"
+    }
   ]
