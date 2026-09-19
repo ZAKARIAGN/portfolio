@@ -1,111 +1,88 @@
-import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import man from '../assets/man.png'
-import editor from '../assets/editor.png'
-import earth from '../assets/bgHero.png'
-import react from "../assets/react.png";
-import node from "../assets/node.png";
-import express from "../assets/express.png";
-import mysql from '../assets/mysql.png'
-import CV from '../assets/CV.pdf'
-
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Hexagon, Menu, ArrowUpRight, MousePointer2, ArrowDown } from 'lucide-react';
+import logo from "../assets/logo.png";
 
 const Hero = () => {
-
-    const titleRef = useRef(null);
-    const subtitleRef = useRef(null);
-    const descRef = useRef(null);
-    const buttonsRef = useRef(null);
-    const manRef = useRef(null);
-    const editorRef = useRef(null);
-
-    useEffect(() => {
-        const ctx = gsap.context(() => {
-            const tl = gsap.timeline();
-
-            tl.from(titleRef.current, {
-                y: -80,
-                opacity: 0,
-                duration: 1,
-                ease: "power3.out",
-            })
-                .from(subtitleRef.current, {
-                    x: -80,
-                    opacity: 0,
-                    duration: 0.8,
-                }, "-=0.5")
-                .from(descRef.current, {
-                    y: 40,
-                    opacity: 0,
-                    duration: 0.8,
-                }, "-=0.4")
-                .from(buttonsRef.current.children, {
-                    y: 30,
-                    stagger: 0.2,
-                    duration: 0.6,
-                }, "-=0.1")
-                .from(manRef.current, {
-                    y: 100,
-                    opacity: 0,
-                    duration: 1,
-                }, "-=0.7")
-                .from(editorRef.current, {
-                    x: 100,
-                    opacity: 0,
-                    duration: 1,
-                }, "-=0.8");
-        });
-
-        return () => ctx.revert();
-    }, []);
-    
     return (
-        <div id="hero" className='relative flex flex-col lg:flex-row px-4 md:px-10 items-center overflow-hidden min-h-screen pt-24 lg:pt-0' style={{ backgroundImage: `url(${earth})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-            <div className='flex flex-col justify-center gap-4 py-6 lg:py-20 w-full lg:w-1/2 z-10'>
-                <p className='text-lg md:text-2xl font-medium text-blue-600 tracking-wide uppercase'>Hello, I'm</p>
-                <h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-[70px] font-extrabold leading-tight text-gray-900' ref={titleRef}>
-                    ZAKARIA <br className="hidden sm:block"/><span className='text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500'>GNAOUI</span>
+        <div id="hero" className="relative w-full h-screen bg-[#07070a] overflow-hidden font-sans text-white select-none">
+            <div 
+                className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" 
+                style={{ 
+                    backgroundImage: 'linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)', 
+                    backgroundSize: '40px 40px' 
+                }}
+            />
+            <div className="absolute inset-0 flex flex-col items-center justify-center z-0 pointer-events-none w-full h-full">
+                <h1 className="text-[25vw] md:text-[22vw] lg:text-[20vw] font-black leading-[0.75] tracking-tighter text-[#f4f4f5] z-0">
+                    ZAKARIA
                 </h1>
-                <p className='text-lg md:text-xl font-semibold text-gray-700' ref={subtitleRef}>Full Stack Developer</p>
-                <p className='text-base md:text-lg text-gray-500 max-w-xl leading-relaxed' ref={descRef}>
-                    I build digital experiences through web development, creating responsive and functional applications for the modern web.
-                </p>
-                <div className='flex flex-col sm:flex-row flex-wrap gap-4 mt-2' ref={buttonsRef}>
-                    <a href="#projects" className='w-full sm:w-auto text-center bg-blue-600 text-white font-semibold px-8 sm:px-14 py-3.5 sm:py-4 rounded-[3px] shadow-lg shadow-blue-500/30 hover:bg-blue-700 hover:-translate-y-1 transition-all duration-300'>
-                        View My Projects
-                    </a>
-                    <a href={CV} download className='w-full sm:w-auto text-center bg-white text-gray-800 font-semibold px-8 sm:px-10 py-3.5 sm:py-4 rounded-[3px] border-2 border-gray-200 hover:border-gray-800 hover:bg-gray-800 hover:text-white hover:-translate-y-1 transition-all duration-300'>
-                        Download CV
-                    </a>
-                </div>
+                <h1 
+                    className="text-[25vw] md:text-[22vw] lg:text-[20vw] font-black leading-[0.75] tracking-tighter text-transparent z-20" 
+                    style={{ WebkitTextStroke: '2px rgba(255,255,255,0.15)' }}
+                >
+                    GNAOUI
+                </h1>
+            </div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[900px] aspect-square flex items-center justify-center z-10 pointer-events-none">
+                <motion.div 
+                    animate={{ rotate: 360 }} 
+                    transition={{ duration: 25, repeat: Infinity, ease: 'linear' }} 
+                    className="absolute w-[90%] h-[35%] rounded-[100%] border border-blue-500/30" 
+                />
+                <motion.div 
+                    animate={{ rotate: -360 }} 
+                    transition={{ duration: 35, repeat: Infinity, ease: 'linear' }} 
+                    className="absolute w-[80%] h-[25%] rounded-[100%] border border-indigo-500/20" 
+                />
+                <motion.div 
+                    animate={{ rotate: 360 }} 
+                    transition={{ duration: 45, repeat: Infinity, ease: 'linear' }} 
+                    className="absolute w-[70%] h-[40%] rounded-[100%] border border-purple-500/10" 
+                />
+            </div>
 
-                <div className='flex flex-wrap items-center gap-3 sm:gap-4 pt-8 lg:pt-10'>
-                    <div className='flex items-center gap-1 sm:gap-2 p-1 transition-all duration-300'>
-                        <img src={react} alt="react" className='w-10 h-10 sm:w-16 sm:h-16 object-contain' />
-                        <p className="hidden sm:block text-xl font-medium text-gray-700">React</p>
-                    </div>
-                    <div className='flex items-center gap-1 sm:gap-2 p-1 transition-all duration-300'>
-                        <img src={node} alt="node" className='w-10 h-10 sm:w-16 sm:h-16 object-contain' />
-                        <p className="hidden sm:block text-xl font-medium text-gray-700">Node</p>
-                    </div>
-                    <div className='flex items-center gap-1 sm:gap-2 p-1 transition-all duration-300'>
-                        <img src={express} alt="express" className='w-10 h-10 sm:w-16 sm:h-16 object-contain' />
-                        <p className="hidden sm:block text-xl font-medium text-gray-700">Express</p>
-                    </div>
-                    <div className='flex items-center gap-1 sm:gap-2 p-1 transition-all duration-300'>
-                        <img src={mysql} alt="mysql" className='w-10 h-10 sm:w-16 sm:h-16 object-contain' />
-                        <p className="hidden sm:block text-xl font-medium text-gray-700">MySQL</p>
-                    </div>
+            <div className="absolute top-6 left-6 md:top-10 md:left-12 z-30 flex items-center gap-3">
+                <div className="w-10 h-10 bg-blue-950/50 rounded-full flex items-center justify-center border border-blue-900/50 shadow-[0_0_15px_rgba(59,130,246,0.2)]">
+                    <img src={logo} alt="ZG Logo" />
+                </div>
+                <span className="text-xs font-bold tracking-[0.2em] text-gray-300">ZG / 01</span>
+            </div>
+            <div className="absolute top-[30%] left-6 md:left-12 z-30 hidden lg:block">
+                <div className="flex items-center gap-4">
+                    <span className="text-[10px] text-blue-600 font-mono font-bold tracking-widest">01</span>
+                    <span className="text-[10px] font-semibold tracking-[0.2em] text-gray-400">INDEPENDENT CREATIVE DEVELOPER</span>
                 </div>
             </div>
-            
-            <div className='relative flex justify-center items-end w-full h-[350px] sm:h-[450px] md:h-[550px] lg:h-screen lg:w-1/2 mt-8 lg:mt-0'>
-                <img src={man} alt="man" className='absolute bottom-0 h-[300px] sm:h-[400px] md:h-[500px] lg:h-[700px] object-contain' ref={manRef} />
-                <img src={editor} alt="editor" className='absolute bottom-4 sm:bottom-10 right-0 sm:right-10 lg:right-0 w-[45%] h-[45%] object-contain drop-shadow-2xl' ref={editorRef} />
+            <div className="absolute bottom-6 left-6 md:bottom-10 md:left-12 z-30 flex flex-col gap-8">
+                <p className="text-sm md:text-base text-gray-400 leading-relaxed max-w-xs font-light">
+                    Digital experiences with a pulse.<br/>
+                    Design, code, and a little bit of magic.
+                </p>
+                <div className="flex items-center gap-2 text-gray-500 text-[10px] font-semibold tracking-[0.2em] cursor-pointer hover:text-white transition-colors group">
+                    <span>SCROLL TO EXPLORE</span>
+                    <ArrowDown size={14} className="group-hover:translate-y-1 transition-transform" />
+                </div>
+            </div>
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 md:bottom-10 z-30 flex flex-col items-center gap-2 text-[10px] tracking-[0.25em] font-semibold text-gray-500">
+                <span>BASED IN MOROCCO</span>
+                <span className="text-gray-600">WORKING EVERYWHERE</span>
+            </div>
+            <div className="absolute bottom-6 right-6 md:bottom-10 md:right-12 z-30">
+                <a href="#contact" className="flex items-center gap-2 text-[10px] font-semibold tracking-[0.2em] text-blue-500 hover:text-blue-400 transition-colors group">
+                    <span>LET'S TALK</span>
+                    <ArrowUpRight size={14} className="group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
+                </a>
+            </div>
+            <div className="absolute bottom-32 right-12 z-30 hidden lg:flex items-center justify-center" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
+                <div className="flex items-center gap-3 text-[10px] font-semibold tracking-[0.25em] text-blue-700/80">
+                    <MousePointer2 size={12} className="rotate-180" />
+                    <span>MOVE YOUR CURSOR</span>
+                </div>
             </div>
 
         </div>
-    )
-}
+    );
+};
 
-export default Hero
+export default Hero;
