@@ -94,7 +94,7 @@ const AboutMe = ({ isOpen, onClose }) => {
                         <div className="about-scroll flex-1 overflow-y-auto px-6 sm:px-12 py-10 relative z-10">
                             <div className="max-w-2xl mx-auto space-y-6 pb-10">
                                 <p className="text-neutral-400 text-sm md:text-base leading-relaxed">
-                                    I'm a passionate Full Stack Web Developer based in Morocco, dedicated to crafting modern, responsive, and highly functional digital experiences. My journey into tech started with an endless curiosity for how things work behind the scenes, leading me down the path of programming, cybersecurity, and system architecture.
+                                    I'm a passionate Software Engineer based in Morocco, dedicated to crafting modern, responsive, and highly functional digital experiences. My journey into tech started with an endless curiosity for how things work behind the scenes, leading me down the path of programming, cybersecurity, and system architecture.
                                 </p>
 
                                 <p className="text-neutral-400 text-sm md:text-base leading-relaxed">

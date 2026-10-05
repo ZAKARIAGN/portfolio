@@ -8,7 +8,7 @@ const ACCENT = '#60a5fa';
 const PROFILE = {
     firstName: 'Zakaria',
     lastName: 'Gnaoui',
-    title: 'Full Stack Developer',
+    title: 'Software Engineer',
     location: 'Morocco',
     email: "zakariagnaoui06@gmail.com",
     phone: '+212649961829',

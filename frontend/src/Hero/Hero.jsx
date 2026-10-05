@@ -51,7 +51,7 @@ const Hero = () => {
             <div className="absolute top-[30%] left-6 md:left-12 z-30 hidden lg:block">
                 <div className="flex items-center gap-4">
                     <span className="text-[10px] text-blue-600 font-mono font-bold tracking-widest">01</span>
-                    <span className="text-[10px] font-semibold tracking-[0.2em] text-gray-400">INDEPENDENT CREATIVE DEVELOPER</span>
+                    <span className="text-[10px] font-semibold tracking-[0.2em] text-gray-400">SOFTWARE ENGINEER</span>
                 </div>
             </div>
             <div className="absolute bottom-6 left-6 md:bottom-10 md:left-12 z-30 flex flex-col gap-8">

@@ -20,7 +20,7 @@ const Footer = () => {
               Zakaria<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400">.</span>
             </h2>
             <p className="text-gray-500 text-sm leading-relaxed">
-              Full-stack web developer passionate about building modern, responsive, and user-focused web applications.
+              Software Engineer passionate about building modern, responsive, and user-focused web applications.
             </p>
           </div>
 

@@ -54,8 +54,8 @@ const Section = ({ onAboutMe }) => {
                     className="font-black tracking-tight leading-[0.95] text-[clamp(3.5rem,11vw,7.5rem)]"
                     style={{ fontFamily: "'Segoe UI', 'Inter', system-ui, Arial, sans-serif" }}
                 >
-                    <span className="block bg-gradient-to-b from-white to-blue-600 bg-clip-text text-transparent">Full Stack</span>
-                    <span className="block text-neutral-400">Developer</span>
+                    <span className="block bg-gradient-to-b from-white to-blue-600 bg-clip-text text-transparent">Software</span>
+                    <span className="block text-neutral-400">Engineer</span>
                 </motion.h1>
 
                 <motion.p
