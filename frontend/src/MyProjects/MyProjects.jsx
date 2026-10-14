@@ -9,8 +9,6 @@ gsap.registerPlugin(ScrollTrigger)
 
 const GITHUB_PROFILE = ''
 
-const ACCENTS = ['#3b82f6', '#a855f7', '#06b6d4', '#f97316']
-
 const isVideo = (src) => typeof src === 'string' && /\.(mp4|webm)$/i.test(src)
 
 const getHost = (url) => {
@@ -27,7 +25,7 @@ const normalizeSkill = (s) => (typeof s === 'string' ? { name: s } : s)
 const ProjectShowcase = ({ project, index }) => {
   const tiltRef = useRef(null)
   const [tipOpen, setTipOpen] = useState(false)
-  const accent = project.color || ACCENTS[index % ACCENTS.length]
+  const accent = project.accent
   const reversed = index % 2 === 1
   const { name, description, img, live, github, skills = [] } = project
 
